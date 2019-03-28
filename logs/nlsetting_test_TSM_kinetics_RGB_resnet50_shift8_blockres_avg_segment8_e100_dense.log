@@ -1,0 +1,231 @@
+kinetics: 400 classes
+=> shift: True, shift_div: 8, shift_place: blockres
+
+    Initializing TSN with base model: resnet50.
+    TSN Configurations:
+        input_modality:     RGB
+        num_segments:       8
+        new_length:         1
+        consensus_module:   avg
+        dropout_ratio:      0.8
+        img_feature_dim:    256
+            
+=> base model: resnet50
+Adding temporal shift...
+=> n_segment per stage: [8, 8, 8, 8]
+=> Processing stage with 3 blocks residual
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Processing stage with 4 blocks residual
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Processing stage with 6 blocks residual
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Processing stage with 3 blocks residual
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using fold div: 8
+=> Using dense sample for the dataset...
+video number:19654
+video 0 done, total 0/19654, average 5.551 sec/video, moving Prec@1 75.000 Prec@5 100.000
+video 160 done, total 160/19654, average 0.427 sec/video, moving Prec@1 56.548 Prec@5 85.119
+video 320 done, total 320/19654, average 0.300 sec/video, moving Prec@1 61.890 Prec@5 84.756
+video 480 done, total 480/19654, average 0.257 sec/video, moving Prec@1 72.541 Prec@5 89.139
+video 640 done, total 640/19654, average 0.236 sec/video, moving Prec@1 75.309 Prec@5 90.586
+video 800 done, total 800/19654, average 0.223 sec/video, moving Prec@1 74.381 Prec@5 90.594
+video 960 done, total 960/19654, average 0.214 sec/video, moving Prec@1 75.826 Prec@5 90.702
+video 1120 done, total 1120/19654, average 0.208 sec/video, moving Prec@1 73.670 Prec@5 89.362
+video 1280 done, total 1280/19654, average 0.203 sec/video, moving Prec@1 74.767 Prec@5 89.984
+video 1440 done, total 1440/19654, average 0.200 sec/video, moving Prec@1 74.724 Prec@5 90.055
+video 1600 done, total 1600/19654, average 0.197 sec/video, moving Prec@1 75.746 Prec@5 90.672
+video 1760 done, total 1760/19654, average 0.194 sec/video, moving Prec@1 75.622 Prec@5 90.837
+video 1920 done, total 1920/19654, average 0.192 sec/video, moving Prec@1 75.934 Prec@5 90.975
+video 2080 done, total 2080/19654, average 0.190 sec/video, moving Prec@1 76.724 Prec@5 91.379
+video 2240 done, total 2240/19654, average 0.189 sec/video, moving Prec@1 77.269 Prec@5 91.548
+video 2400 done, total 2400/19654, average 0.188 sec/video, moving Prec@1 76.620 Prec@5 91.653
+video 2560 done, total 2560/19654, average 0.187 sec/video, moving Prec@1 75.701 Prec@5 91.316
+video 2720 done, total 2720/19654, average 0.186 sec/video, moving Prec@1 75.733 Prec@5 91.496
+video 2880 done, total 2880/19654, average 0.185 sec/video, moving Prec@1 75.554 Prec@5 91.240
+video 3040 done, total 3040/19654, average 0.184 sec/video, moving Prec@1 75.886 Prec@5 91.535
+video 3200 done, total 3200/19654, average 0.183 sec/video, moving Prec@1 75.935 Prec@5 91.552
+video 3360 done, total 3360/19654, average 0.183 sec/video, moving Prec@1 75.683 Prec@5 91.419
+video 3520 done, total 3520/19654, average 0.182 sec/video, moving Prec@1 75.737 Prec@5 91.638
+video 3680 done, total 3680/19654, average 0.182 sec/video, moving Prec@1 75.190 Prec@5 91.621
+video 3840 done, total 3840/19654, average 0.181 sec/video, moving Prec@1 75.182 Prec@5 91.476
+video 4000 done, total 4000/19654, average 0.181 sec/video, moving Prec@1 75.125 Prec@5 91.492
+video 4160 done, total 4160/19654, average 0.180 sec/video, moving Prec@1 75.552 Prec@5 91.723
+video 4320 done, total 4320/19654, average 0.180 sec/video, moving Prec@1 75.185 Prec@5 91.751
+video 4480 done, total 4480/19654, average 0.179 sec/video, moving Prec@1 75.334 Prec@5 91.889
+video 4640 done, total 4640/19654, average 0.179 sec/video, moving Prec@1 75.753 Prec@5 92.083
+video 4800 done, total 4800/19654, average 0.179 sec/video, moving Prec@1 75.562 Prec@5 91.889
+video 4960 done, total 4960/19654, average 0.178 sec/video, moving Prec@1 75.503 Prec@5 91.969
+video 5120 done, total 5120/19654, average 0.178 sec/video, moving Prec@1 74.473 Prec@5 91.576
+video 5280 done, total 5280/19654, average 0.178 sec/video, moving Prec@1 73.960 Prec@5 91.509
+video 5440 done, total 5440/19654, average 0.178 sec/video, moving Prec@1 73.862 Prec@5 91.612
+video 5600 done, total 5600/19654, average 0.177 sec/video, moving Prec@1 73.217 Prec@5 91.352
+video 5760 done, total 5760/19654, average 0.177 sec/video, moving Prec@1 72.798 Prec@5 91.262
+video 5920 done, total 5920/19654, average 0.177 sec/video, moving Prec@1 72.723 Prec@5 91.262
+video 6080 done, total 6080/19654, average 0.177 sec/video, moving Prec@1 72.372 Prec@5 91.032
+video 6240 done, total 6240/19654, average 0.177 sec/video, moving Prec@1 72.711 Prec@5 91.149
+video 6400 done, total 6400/19654, average 0.176 sec/video, moving Prec@1 72.331 Prec@5 90.949
+video 6560 done, total 6560/19654, average 0.176 sec/video, moving Prec@1 72.549 Prec@5 91.032
+video 6720 done, total 6720/19654, average 0.176 sec/video, moving Prec@1 72.711 Prec@5 91.112
+video 6880 done, total 6880/19654, average 0.176 sec/video, moving Prec@1 72.706 Prec@5 91.028
+video 7040 done, total 7040/19654, average 0.176 sec/video, moving Prec@1 72.815 Prec@5 91.118
+video 7200 done, total 7200/19654, average 0.176 sec/video, moving Prec@1 73.196 Prec@5 91.246
+video 7360 done, total 7360/19654, average 0.176 sec/video, moving Prec@1 73.385 Prec@5 91.273
+video 7520 done, total 7520/19654, average 0.176 sec/video, moving Prec@1 72.875 Prec@5 90.994
+video 7680 done, total 7680/19654, average 0.176 sec/video, moving Prec@1 72.789 Prec@5 90.947
+video 7840 done, total 7840/19654, average 0.175 sec/video, moving Prec@1 72.694 Prec@5 90.762
+video 8000 done, total 8000/19654, average 0.175 sec/video, moving Prec@1 73.089 Prec@5 90.884
+video 8160 done, total 8160/19654, average 0.175 sec/video, moving Prec@1 73.372 Prec@5 90.977
+video 8320 done, total 8320/19654, average 0.175 sec/video, moving Prec@1 73.379 Prec@5 90.886
+video 8480 done, total 8480/19654, average 0.175 sec/video, moving Prec@1 73.563 Prec@5 90.952
+video 8640 done, total 8640/19654, average 0.175 sec/video, moving Prec@1 73.682 Prec@5 91.004
+video 8800 done, total 8800/19654, average 0.175 sec/video, moving Prec@1 73.785 Prec@5 90.985
+video 8960 done, total 8960/19654, average 0.175 sec/video, moving Prec@1 73.695 Prec@5 91.012
+video 9120 done, total 9120/19654, average 0.175 sec/video, moving Prec@1 73.291 Prec@5 90.907
+video 9280 done, total 9280/19654, average 0.175 sec/video, moving Prec@1 73.353 Prec@5 90.956
+video 9440 done, total 9440/19654, average 0.175 sec/video, moving Prec@1 73.349 Prec@5 90.940
+video 9600 done, total 9600/19654, average 0.174 sec/video, moving Prec@1 73.397 Prec@5 90.914
+video 9760 done, total 9760/19654, average 0.174 sec/video, moving Prec@1 73.372 Prec@5 90.909
+video 9920 done, total 9920/19654, average 0.174 sec/video, moving Prec@1 73.338 Prec@5 90.915
+video 10080 done, total 10080/19654, average 0.174 sec/video, moving Prec@1 73.364 Prec@5 90.841
+video 10240 done, total 10240/19654, average 0.174 sec/video, moving Prec@1 73.468 Prec@5 90.915
+video 10400 done, total 10400/19654, average 0.174 sec/video, moving Prec@1 73.597 Prec@5 91.007
+video 10560 done, total 10560/19654, average 0.174 sec/video, moving Prec@1 73.571 Prec@5 91.048
+video 10720 done, total 10720/19654, average 0.174 sec/video, moving Prec@1 73.620 Prec@5 91.061
+video 10880 done, total 10880/19654, average 0.174 sec/video, moving Prec@1 73.714 Prec@5 91.128
+video 11040 done, total 11040/19654, average 0.174 sec/video, moving Prec@1 73.941 Prec@5 91.211
+video 11200 done, total 11200/19654, average 0.174 sec/video, moving Prec@1 74.188 Prec@5 91.301
+video 11360 done, total 11360/19654, average 0.174 sec/video, moving Prec@1 74.375 Prec@5 91.353
+video 11520 done, total 11520/19654, average 0.174 sec/video, moving Prec@1 74.349 Prec@5 91.343
+video 11680 done, total 11680/19654, average 0.174 sec/video, moving Prec@1 74.547 Prec@5 91.410
+video 11840 done, total 11840/19654, average 0.174 sec/video, moving Prec@1 74.705 Prec@5 91.467
+video 12000 done, total 12000/19654, average 0.174 sec/video, moving Prec@1 74.867 Prec@5 91.497
+video 12160 done, total 12160/19654, average 0.174 sec/video, moving Prec@1 75.082 Prec@5 91.593
+video 12320 done, total 12320/19654, average 0.174 sec/video, moving Prec@1 75.170 Prec@5 91.653
+video 12480 done, total 12480/19654, average 0.174 sec/video, moving Prec@1 75.280 Prec@5 91.656
+video 12640 done, total 12640/19654, average 0.174 sec/video, moving Prec@1 75.340 Prec@5 91.690
+video 12800 done, total 12800/19654, average 0.174 sec/video, moving Prec@1 75.390 Prec@5 91.708
+video 12960 done, total 12960/19654, average 0.173 sec/video, moving Prec@1 75.494 Prec@5 91.749
+video 13120 done, total 13120/19654, average 0.173 sec/video, moving Prec@1 75.396 Prec@5 91.636
+video 13280 done, total 13280/19654, average 0.173 sec/video, moving Prec@1 75.512 Prec@5 91.654
+video 13440 done, total 13440/19654, average 0.173 sec/video, moving Prec@1 75.587 Prec@5 91.731
+video 13600 done, total 13600/19654, average 0.173 sec/video, moving Prec@1 75.610 Prec@5 91.777
+video 13760 done, total 13760/19654, average 0.173 sec/video, moving Prec@1 75.399 Prec@5 91.618
+video 13920 done, total 13920/19654, average 0.173 sec/video, moving Prec@1 75.517 Prec@5 91.657
+video 14080 done, total 14080/19654, average 0.173 sec/video, moving Prec@1 75.532 Prec@5 91.702
+video 14240 done, total 14240/19654, average 0.173 sec/video, moving Prec@1 75.351 Prec@5 91.599
+video 14400 done, total 14400/19654, average 0.173 sec/video, moving Prec@1 75.298 Prec@5 91.546
+video 14560 done, total 14560/19654, average 0.173 sec/video, moving Prec@1 75.316 Prec@5 91.564
+video 14720 done, total 14720/19654, average 0.173 sec/video, moving Prec@1 75.163 Prec@5 91.574
+video 14880 done, total 14880/19654, average 0.173 sec/video, moving Prec@1 75.202 Prec@5 91.597
+video 15040 done, total 15040/19654, average 0.173 sec/video, moving Prec@1 75.013 Prec@5 91.407
+video 15200 done, total 15200/19654, average 0.173 sec/video, moving Prec@1 75.039 Prec@5 91.478
+video 15360 done, total 15360/19654, average 0.173 sec/video, moving Prec@1 75.117 Prec@5 91.521
+video 15520 done, total 15520/19654, average 0.173 sec/video, moving Prec@1 74.994 Prec@5 91.396
+video 15680 done, total 15680/19654, average 0.173 sec/video, moving Prec@1 75.057 Prec@5 91.420
+video 15840 done, total 15840/19654, average 0.173 sec/video, moving Prec@1 74.785 Prec@5 91.229
+video 16000 done, total 16000/19654, average 0.173 sec/video, moving Prec@1 74.806 Prec@5 91.273
+video 16160 done, total 16160/19654, average 0.173 sec/video, moving Prec@1 74.703 Prec@5 91.291
+video 16320 done, total 16320/19654, average 0.173 sec/video, moving Prec@1 74.596 Prec@5 91.254
+video 16480 done, total 16480/19654, average 0.173 sec/video, moving Prec@1 74.484 Prec@5 91.230
+video 16640 done, total 16640/19654, average 0.173 sec/video, moving Prec@1 74.525 Prec@5 91.302
+video 16800 done, total 16800/19654, average 0.173 sec/video, moving Prec@1 74.560 Prec@5 91.373
+video 16960 done, total 16960/19654, average 0.173 sec/video, moving Prec@1 74.310 Prec@5 91.231
+video 17120 done, total 17120/19654, average 0.173 sec/video, moving Prec@1 74.229 Prec@5 91.184
+video 17280 done, total 17280/19654, average 0.173 sec/video, moving Prec@1 74.289 Prec@5 91.208
+video 17440 done, total 17440/19654, average 0.173 sec/video, moving Prec@1 74.255 Prec@5 91.231
+video 17600 done, total 17600/19654, average 0.173 sec/video, moving Prec@1 74.120 Prec@5 91.163
+video 17760 done, total 17760/19654, average 0.173 sec/video, moving Prec@1 74.066 Prec@5 91.153
+video 17920 done, total 17920/19654, average 0.173 sec/video, moving Prec@1 74.074 Prec@5 91.170
+video 18080 done, total 18080/19654, average 0.173 sec/video, moving Prec@1 74.077 Prec@5 91.210
+video 18240 done, total 18240/19654, average 0.173 sec/video, moving Prec@1 74.063 Prec@5 91.205
+video 18400 done, total 18400/19654, average 0.173 sec/video, moving Prec@1 74.044 Prec@5 91.194
+video 18560 done, total 18560/19654, average 0.173 sec/video, moving Prec@1 74.058 Prec@5 91.195
+video 18720 done, total 18720/19654, average 0.173 sec/video, moving Prec@1 74.066 Prec@5 91.206
+video 18880 done, total 18880/19654, average 0.173 sec/video, moving Prec@1 74.079 Prec@5 91.211
+video 19040 done, total 19040/19654, average 0.173 sec/video, moving Prec@1 74.092 Prec@5 91.243
+video 19200 done, total 19200/19654, average 0.173 sec/video, moving Prec@1 74.162 Prec@5 91.285
+video 19360 done, total 19360/19654, average 0.173 sec/video, moving Prec@1 74.189 Prec@5 91.248
+video 19520 done, total 19520/19654, average 0.172 sec/video, moving Prec@1 74.140 Prec@5 91.223
+[0.78       0.51020408 0.44       0.4        0.56       0.86
+ 0.91836735 0.98       1.         0.8        0.8        0.81632653
+ 0.93877551 0.58       0.72       0.84       0.48979592 0.94
+ 0.91836735 0.96       0.52083333 0.4        0.8        0.8
+ 0.92       0.75510204 0.58       0.81632653 0.78       0.9
+ 0.78       0.91836735 0.81632653 0.875      0.62       0.6875
+ 0.62       0.88       0.9        0.84       0.94       0.8
+ 0.9        0.82       0.91666667 0.64       0.95833333 0.58333333
+ 0.3877551  0.68       0.68       0.58       0.92       0.56
+ 0.82       0.85714286 0.87755102 0.375      0.9        0.91836735
+ 0.6122449  0.9        0.76       0.73469388 0.82       0.64
+ 0.72       0.68       0.88       0.81632653 0.66       0.46
+ 0.8125     0.58       0.67346939 0.91836735 0.54166667 0.88
+ 0.92       0.48979592 0.77083333 0.7173913  0.96       0.91489362
+ 0.84       0.51020408 0.64583333 0.65306122 0.89795918 0.93877551
+ 0.62       0.84       0.84       1.         0.7        0.62
+ 0.74       0.875      0.6875     0.86       0.30612245 0.4
+ 0.24489796 0.77083333 0.69387755 0.34042553 0.64       0.64583333
+ 0.86956522 0.75510204 0.52       0.75       0.4        0.30612245
+ 0.38       0.58       0.87755102 0.88       0.8        0.36734694
+ 0.70833333 0.81632653 0.20408163 0.84       0.75510204 0.88
+ 0.97959184 0.44       0.26530612 0.87755102 0.9        0.68085106
+ 0.87234043 0.69565217 0.98       0.80434783 0.55102041 0.55102041
+ 0.81632653 0.93877551 0.88       0.56       0.86       0.93877551
+ 0.96       0.82       0.83673469 0.87755102 0.82       0.63265306
+ 0.28       0.88       0.24       0.88       0.56       0.68
+ 0.86       0.85416667 0.34693878 0.93877551 0.87755102 0.94
+ 0.92       0.85416667 0.87755102 0.8125     0.9        0.9
+ 0.375      0.81818182 0.81632653 0.83673469 0.93877551 0.75555556
+ 0.88       0.54       0.69565217 0.94       0.9        0.69387755
+ 0.55319149 0.79591837 0.62       0.7        0.20408163 0.58
+ 0.9        0.70833333 0.84       0.92       0.74       0.46
+ 0.92       0.89795918 0.48979592 0.6122449  0.66       0.97916667
+ 0.56       0.85714286 0.5        0.92       0.73469388 0.6
+ 0.88       0.94       0.88       0.5625     0.89795918 0.67346939
+ 0.9375     0.64       0.46808511 0.87755102 0.93617021 0.7755102
+ 0.57142857 0.89795918 0.92       0.8        0.68       0.85416667
+ 0.88       0.9        0.98       0.86       0.97916667 0.8125
+ 0.86       0.9        0.91836735 0.72       0.7        0.69387755
+ 0.98       0.89795918 0.8125     0.74       0.9        0.86
+ 0.98       0.72       0.95918367 0.87755102 0.84       0.98
+ 0.9375     0.81632653 0.85714286 0.8        0.80434783 0.79545455
+ 0.83673469 0.91666667 0.97916667 1.         0.4        0.89583333
+ 0.84       0.625      0.79166667 0.78       0.9        0.88
+ 0.79166667 0.72       0.3        0.85416667 0.96       0.92
+ 0.95918367 0.83333333 0.64583333 0.82608696 0.82       0.8
+ 0.66       0.48       0.87755102 0.32       0.93877551 0.8125
+ 0.89795918 0.60416667 0.94       0.69387755 0.9        0.7755102
+ 0.25531915 0.46938776 0.65957447 0.79591837 0.7755102  0.55102041
+ 1.         0.8        0.32       0.53061224 0.8        0.92
+ 0.68       0.85714286 0.76       0.58333333 0.4        0.64
+ 0.97959184 0.7        0.70212766 0.75       0.89361702 0.8125
+ 0.86       0.83673469 0.10204082 0.94       0.65306122 0.89795918
+ 0.83673469 0.32       0.16666667 0.87234043 0.77777778 0.98
+ 0.79591837 0.38       0.89795918 0.76595745 0.3        0.85106383
+ 0.78723404 0.34693878 0.88888889 0.5        0.48       0.63265306
+ 1.         0.85416667 0.66       0.83673469 0.85714286 0.66
+ 0.64       0.26       0.5625     0.53061224 0.8125     0.51020408
+ 0.74       0.81632653 0.77083333 0.89795918 0.66       0.44897959
+ 0.93877551 0.63265306 0.9        0.22       0.72       0.64
+ 0.86       0.5        0.8        0.68       0.87755102 0.85714286
+ 0.70833333 0.63265306 0.46       0.7755102  0.875      0.93181818
+ 0.6122449  0.89583333 0.46938776 0.93877551 0.86       0.52
+ 0.73469388 0.69387755 0.88       0.66666667 0.85416667 0.73469388
+ 0.64       0.86       0.68       0.8        0.86       0.77083333
+ 0.89795918 0.88       0.46938776 0.98       0.81632653 0.58
+ 0.72       0.40816327 0.81632653 0.84444444]
+upper bound: 0.7416671914697676
+-----Evaluation is finished------
+Class Accuracy 74.14%
+Overall Prec@1 74.12% Prec@5 91.21%
