@@ -34,7 +34,7 @@ if __name__ == '__main__':
         idx_categories = []
         for item in data:
             folders.append(item['id'])
-            if 'test' not in files_input:
+            if 'test' not in filename_input:
                 idx_categories.append(dict_categories[item['template'].replace('[', '').replace(']', '')])
             else:
                 idx_categories.append(0)
