@@ -16,7 +16,8 @@ class TSN(nn.Module):
                  consensus_type='avg', before_softmax=True,
                  dropout=0.8, img_feature_dim=256,
                  crop_num=1, partial_bn=True, print_spec=True, pretrain='imagenet',
-                 is_shift=False, shift_div=8, shift_place='blockres', fc_lr5=False, temporal_pool=False):
+                 is_shift=False, shift_div=8, shift_place='blockres', fc_lr5=False,
+                 temporal_pool=False, non_local=False):
         super(TSN, self).__init__()
         self.modality = modality
         self.num_segments = num_segments
@@ -34,6 +35,7 @@ class TSN(nn.Module):
         self.base_model_name = base_model
         self.fc_lr5 = fc_lr5
         self.temporal_pool = temporal_pool
+        self.non_local = non_local
 
         if not before_softmax and consensus_type != 'avg':
             raise ValueError("Only avg consensus can be used after Softmax")
@@ -105,6 +107,12 @@ class TSN(nn.Module):
                 from ops.temporal_shift import make_temporal_shift
                 make_temporal_shift(self.base_model, self.num_segments,
                                     n_div=self.shift_div, place=self.shift_place, temporal_pool=self.temporal_pool)
+
+            if self.non_local:
+                print('Adding non-local module...')
+                from ops.non_local import make_non_local
+                make_non_local(self.base_model, self.num_segments)
+
             self.base_model.last_layer_name = 'fc'
             self.input_size = 224
             self.input_mean = [0.485, 0.456, 0.406]

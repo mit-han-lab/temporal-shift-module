@@ -53,8 +53,8 @@ parser.add_argument('--eval-freq', '-ef', default=5, type=int,
 
 
 # ========================= Runtime Configs ==========================
-parser.add_argument('-j', '--workers', default=30, type=int, metavar='N',
-                    help='number of data loading workers (default: 4)')
+parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
+                    help='number of data loading workers (default: 8)')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
@@ -72,5 +72,6 @@ parser.add_argument('--shift_div', default=8, type=int, help='number of div for 
 parser.add_argument('--shift_place', default='blockres', type=str, help='place for shift (default: stageres)')
 
 parser.add_argument('--temporal_pool', default=False, action="store_true", help='add temporal pooling')
+parser.add_argument('--non_local', default=False, action="store_true", help='add non local block')
 
 parser.add_argument('--dense_sample', default=False, action="store_true", help='use dense sample for video dataset')

@@ -65,14 +65,22 @@ bash pretrained/download.sh
 
 It will download the models into `pretrained` folder.
 
-In the current version of our paper, we reported the results of TSM trained and tested with **I3D dense sampling** (Table 1&4, 8-frame and 16-frame), using the same training and testing hyper-parameters as in [Non-local Neural Networks](https://arxiv.org/abs/1711.07971) paper to directly compare with I3D. Here we provide the 8-frame version checkpoint `TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth` that achieves 74.1% Kinetics accuracy. We compare the I3D performance reported in Non-local paper:
+#### Dense Sampling Models
 
-| method       | n-frame      | Kinetics Acc. |
-| ------------ | ------------ | ------------- |
-| I3D-ResNet50 | 32 * 10clips | 73.3          |
-| TSM-ResNet50 | 8 * 10clips  | **74.1**      |
+In the current version of our paper, we reported the results of TSM trained and tested with **I3D dense sampling** (Table 1&4, 8-frame and 16-frame), using the same training and testing hyper-parameters as in [Non-local Neural Networks](https://arxiv.org/abs/1711.07971) paper to directly compare with I3D. Here we provide the 8-frame version checkpoint `TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth` that achieves 74.1% Kinetics accuracy. We also provide a model trained with **Non-local module** `TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth` to form NL TSM.
 
-TSM outperforms I3D under the same dense sampling protocol. 
+We compare the I3D performance reported in Non-local paper:
+
+| method          | n-frame      | Kinetics Acc. |
+| --------------- | ------------ | ------------- |
+| I3D-ResNet50    | 32 * 10clips | 73.3%         |
+| TSM-ResNet50    | 8 * 10clips  | **74.1%**     |
+| NL I3D-ResNet50 | 32 * 10clips | 74.9%         |
+| NL TSM-ResNet50 | 8 * 10clips  | **75.6%**     |
+
+TSM outperforms I3D under the same dense sampling protocol. NL TSM model also achieves better performance than NL I3D model. Non-local module itself improves the accuracy by 1.5%.
+
+#### Unifrom Sampling Models
 
 We also provide the checkpoints of TSN and TSM models using **uniform sampled frames** as in [Temporal Segment Networks](<https://arxiv.org/abs/1608.00859>) paper, which is very useful for fine-tuning on other datasets. We provide the pretrained ResNet-50 for TSN and our TSM (8 and 16 frames), including `TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth, TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth, TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth`.
 
@@ -80,10 +88,10 @@ The performance on Kinetics is measured as (using only 1 clip):
 
 | method     | n-frame | acc (1-crop) | acc (10-crop) |
 | ---------- | ------- | ------------ | ------------- |
-| TSN        | 8       | 68.8         | 69.9          |
-| TSM (ours) | 8       | 71.2         | 72.8          |
-| TSN        | 16      | 69.4         | 70.2          |
-| TSM (ours) | 16      | **72.6**     | **73.7**      |
+| TSN        | 8       | 68.8%        | 69.9%         |
+| TSM (ours) | 8       | 71.2%        | 72.8%         |
+| TSN        | 16      | 69.4%        | 70.2%         |
+| TSM (ours) | 16      | **72.6%**    | **73.7%**     |
 
 Our TSM module improves consistently over the TSN baseline.
 
@@ -121,9 +129,15 @@ python test_models.py kinetics \
     --weights=pretrained/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth \
     --test_segments=8 --test_crops=3 \
     --batch_size=8 --dense_sample --full_res
+
+# test NL TSM using non-local testing protocol
+python test_models.py kinetics \
+    --weights=pretrained/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth \
+    --test_segments=8 --test_crops=3 \
+    --batch_size=8 --dense_sample --full_res
 ```
 
-You should get around 70.6% and 74.1% top-1 accuracy, as shown in Table 1.
+You should get around 70.6%, 74.1%, 75.6% top-1 accuracy, as shown in Table 1.
 
 We provide the **log files** of above testing examples in folder `logs`. For other datasets and trained models, refer to the code for details.
 

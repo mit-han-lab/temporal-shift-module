@@ -44,6 +44,8 @@ def main():
         args.store_name += '_{}'.format(args.lr_type)
     if args.dense_sample:
         args.store_name += '_dense'
+    if args.non_local > 0:
+        args.store_name += '_nl'
     if args.suffix is not None:
         args.store_name += '_{}'.format(args.suffix)
     print('storing name: ' + args.store_name)
@@ -59,7 +61,8 @@ def main():
                 pretrain=args.pretrain,
                 is_shift=args.shift, shift_div=args.shift_div, shift_place=args.shift_place,
                 fc_lr5=not (args.tune_from and args.dataset in args.tune_from),
-                temporal_pool=args.temporal_pool)
+                temporal_pool=args.temporal_pool,
+                non_local=args.non_local)
 
     crop_size = model.crop_size
     scale_size = model.scale_size

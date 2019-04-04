@@ -32,7 +32,7 @@ parser.add_argument('--test_crops', type=int, default=1)
 parser.add_argument('--coeff', type=str, default=None)
 parser.add_argument('--batch_size', type=int, default=1)
 parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
-                    help='number of data loading workers (default: 4)')
+                    help='number of data loading workers (default: 8)')
 
 # for true test
 parser.add_argument('--test_list', type=str, default=None)
@@ -130,6 +130,7 @@ for this_weights, this_test_segments, test_file in zip(weights_list, test_segmen
               img_feature_dim=args.img_feature_dim,
               pretrain=args.pretrain,
               is_shift=is_shift, shift_div=shift_div, shift_place=shift_place,
+              non_local='_nl' in this_weights,
               )
 
     if 'tpool' in this_weights:
