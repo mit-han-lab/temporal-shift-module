@@ -53,7 +53,7 @@ out[:, :, 2 * fold:] = x[:, :, 2 * fold:]  # not shift
 return out
 ```
 
-Note that the naive implementation involves large data copying and increases memory consumption during training. It is suggested to use the **in-place** version of TSM to improve speed (**TODO**).
+Note that the naive implementation involves large data copying and increases memory consumption during training. It is suggested to use the **in-place** version of TSM to improve speed (see [ops/temporal_shift.py](ops/temporal_shift.py) Line 12 for the details.)
 
 ### Kinetics Pretrained Models
 
