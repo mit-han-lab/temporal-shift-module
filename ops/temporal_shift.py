@@ -20,7 +20,7 @@ class TemporalShift(nn.Module):
         print('=> Using fold div: {}'.format(self.fold_div))
 
     def forward(self, x):
-        x = self.shift(x, self.n_segment, fold_div=self.fold_div)
+        x = self.shift(x, self.n_segment, fold_div=self.fold_div, inplace=self.inplace)
         return self.net(x)
 
     @staticmethod
@@ -166,8 +166,8 @@ if __name__ == '__main__':
             x2 = x1.clone()
             y1 = tsm1(x1)
             y2 = tsm2(x2)
-            grad1 = torch.autograd.grad(y1.mean(), [x1])[0]
-            grad2 = torch.autograd.grad(y2.mean(), [x2])[0]
+            grad1 = torch.autograd.grad((y1 ** 2).mean(), [x1])[0]
+            grad2 = torch.autograd.grad((y2 ** 2).mean(), [x2])[0]
             assert torch.norm(grad1 - grad2).item() < 1e-5
 
     print('=> Testing GPU...')
@@ -189,8 +189,8 @@ if __name__ == '__main__':
             x2 = x1.clone()
             y1 = tsm1(x1)
             y2 = tsm2(x2)
-            grad1 = torch.autograd.grad(y1.mean(), [x1])[0]
-            grad2 = torch.autograd.grad(y2.mean(), [x2])[0]
+            grad1 = torch.autograd.grad((y1 ** 2).mean(), [x1])[0]
+            grad2 = torch.autograd.grad((y2 ** 2).mean(), [x2])[0]
             assert torch.norm(grad1 - grad2).item() < 1e-5
     print('Test passed.')
 
