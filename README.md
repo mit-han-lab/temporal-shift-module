@@ -24,6 +24,7 @@ The code is built with following libraries:
 - [PyTorch](https://pytorch.org/) 1.0
 - [TensorboardX](https://github.com/lanpa/tensorboardX)
 - [tqdm](https://github.com/tqdm/tqdm.git)
+- [scikit-learn](https://scikit-learn.org/stable/)
 
 For video data pre-processing, you may need [ffmpeg](https://www.ffmpeg.org/).
 
