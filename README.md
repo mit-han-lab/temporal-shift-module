@@ -22,8 +22,9 @@ If you find our paper and repo useful, please cite our paper. Thanks!
 - [Data Preparation](#data-preparation)
 - [Code](#code)
 - [Pretrained Models](#pretrained-models)
-  * [Kinetics-400 (Dense Sampling)](#kinetics-400--dense-sampling-)
-  * [Kinetics-400 (Unifrom Sampling)](#kinetics-400--unifrom-sampling-)
+  * [Kinetics-400](#kinetics-400)
+    + [Dense Sample](#dense-sample)
+    + [Unifrom Sampling](#unifrom-sampling)
   * [Something-Something](#something-something)
     + [Something-Something-V1](#something-something-v1)
     + [Something-Something-V2](#something-something-v2)
@@ -73,7 +74,9 @@ Note that the naive implementation involves large data copying and increases mem
 
 Training video models is computationally expensive. Here we provide some of the pretrained models. The accuracy might vary a little bit compared to the paper, since we re-train some of the models.
 
-#### Kinetics-400 (Dense Sampling)
+#### Kinetics-400
+
+##### Dense Sample
 
 In the latest version of our paper, we reported the results of TSM trained and tested with **I3D dense sampling** (Table 1&4, 8-frame and 16-frame), using the same training and testing hyper-parameters as in [Non-local Neural Networks](https://arxiv.org/abs/1711.07971) paper to directly compare with I3D. 
 
@@ -98,7 +101,7 @@ Here is a list of pre-trained models that we provide (see Table 3 of the paper).
 | TSM ResNext101    | 8 * 10clips | 76.3%         | TODO                                                         | TODO                                                         |
 | TSM MoileNetV2    | 8 * 10clips | 69.5%         | TODO                                                         | TODO                                                         |
 
-#### Kinetics-400 (Unifrom Sampling)
+##### Unifrom Sampling
 
 We also provide the checkpoints of TSN and TSM models using **uniform sampled frames** as in [Temporal Segment Networks](<https://arxiv.org/abs/1608.00859>) paper, which is more sample efficient and very useful for fine-tuning on other datasets. Our TSM module improves consistently over the TSN baseline.
 
