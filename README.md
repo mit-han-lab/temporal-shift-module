@@ -119,19 +119,19 @@ Here we provide some of the models on the dataset. The accuracy is tested using 
 
 ##### Something-Something-V1
 
-| model        | n-frame    | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint                                                   | test log                                                     |
-| ------------ | ---------- | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSM ResNet50 | 8 * 1clip  | 45.6                      | 47.2                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
-| TSM ResNet50 | 16 * 1clip | 47.2                      | 48.4                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
+| model        | n-frame | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint                                                   | test log                                                     |
+| ------------ | ------- | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSM ResNet50 | 8       | 45.6                      | 47.2                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50 | 16      | 47.2                      | 48.4                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
 
 ##### Something-Something-V2
 
 On V2 dataset, the accuracy is reported under the accurate setting (full resolution * 2clip).
 
-| model        | n-frame    | accuracy | checkpoint                                                   | test log                                                     |
-| ------------ | ---------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSM ResNet50 | 8 * 1clip  | 61.2     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
-| TSM ResNet50 | 16 * 1clip | 63.1     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
+| model        | n-frame   | accuracy | checkpoint                                                   | test log                                                     |
+| ------------ | --------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSM ResNet50 | 8 * 2clip | 61.2     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50 | 16 * 2lip | 63.1     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
 
 ### Testing 
 
