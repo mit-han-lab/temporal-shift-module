@@ -71,7 +71,7 @@ Note that the naive implementation involves large data copying and increases mem
 
 ### Pretrained Models
 
-Training video models is computationally expensive. Here we provide some of the pretrained models.
+Training video models is computationally expensive. Here we provide some of the pretrained models. The accuracy might vary a little bit compared to the paper, since we re-train some of the models.
 
 #### Kinetics-400 (Dense Sampling)
 
@@ -110,25 +110,25 @@ We also provide the checkpoints of TSN and TSM models using **uniform sampled fr
 
 #### Something-Something
 
-Something-Something [V1](https://20bn.com/datasets/something-something/v1)&[V2](https://20bn.com/datasets/something-something) datasets are highly temporal-related. TSM achieves state-of-the-art performnace on the datasets: TSM achieves the first place on V1 (50.72% test acc.) and second place on V2 (66.55% test acc.) using ResNet-50 backbone (as of 09/28/2019).
+Something-Something [V1](https://20bn.com/datasets/something-something/v1)&[V2](https://20bn.com/datasets/something-something) datasets are highly temporal-related. TSM achieves state-of-the-art performnace on the datasets: TSM achieves the **first place** on V1 (50.72% test acc.) and **second place** on V2 (66.55% test acc.), using just ResNet-50 backbone (as of 09/28/2019).
 
 Here we provide some of the models on the dataset. The accuracy is tested using both efficient setting (center crop * 1clip) and accuate setting ([full resolution](https://github.com/facebookresearch/video-nonlocal-net) * 2clip)
 
 ##### Something-Something-V1
 
-| model        | n-frame    | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint | test log |
-| ------------ | ---------- | ------------------------- | ---------------------- | ---------- | -------- |
-| TSM ResNet50 | 8 * 1clip  | 45.6                      | 47.3                   | TODO       | TODO     |
-| TSM ResNet50 | 16 * 1clip | 47.2                      | 48.4                   | TODO       | TODO     |
+| model        | n-frame    | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint                                                   | test log                                                     |
+| ------------ | ---------- | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSM ResNet50 | 8 * 1clip  | 45.6                      | 47.2                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50 | 16 * 1clip | 47.2                      | 48.4                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
 
 ##### Something-Something-V2
 
 On V2 dataset, the accuracy is reported under the accurate setting (full resolution * 2clip).
 
-| model        | n-frame    | accuracy | checkpoint | test log |
-| ------------ | ---------- | -------- | ---------- | -------- |
-| TSM ResNet50 | 8 * 1clip  | 59.1     | TODO       | TODO     |
-| TSM ResNet50 | 16 * 1clip | 63.4     | TODO       | TODO     |
+| model        | n-frame    | accuracy | checkpoint                                                   | test log                                                     |
+| ------------ | ---------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSM ResNet50 | 8 * 1clip  | 61.2     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50 | 16 * 1clip | 63.1     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
 
 ### Testing 
 
@@ -174,7 +174,19 @@ python test_models.py kinetics \
 
 You should get around 70.6%, 74.1%, 75.6% top-1 accuracy, as shown in Table 1.
 
-We provide the **log files** of above testing examples in folder `logs`. For other datasets and trained models, refer to the code for details.
+For the efficient (center crop and 1 clip) and accurate setting (full resolution and 2 clip) on Something-Something, you can try something like this:
+
+```bash
+# efficient setting: center crop and 1 clip
+python test_models.py something \
+    --weights=pretrained/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth \
+    --test_segments=8 --batch_size=72 -j 24 --test_crops=1
+
+# accurate setting: full resolution and 2 clips (--twice sample)
+python test_models.py something \
+    --weights=pretrained/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth \
+    --test_segments=8 --batch_size=72 -j 24 --test_crops=3  --twice_sample
+```
 
 ### Training 
 
