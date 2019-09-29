@@ -33,7 +33,7 @@ class TSNDataSet(data.Dataset):
                  num_segments=3, new_length=1, modality='RGB',
                  image_tmpl='img_{:05d}.jpg', transform=None,
                  random_shift=True, test_mode=False,
-                 remove_missing=False, dense_sample=False):
+                 remove_missing=False, dense_sample=False, twice_sample=False):
 
         self.root_path = root_path
         self.list_file = list_file
@@ -46,8 +46,11 @@ class TSNDataSet(data.Dataset):
         self.test_mode = test_mode
         self.remove_missing = remove_missing
         self.dense_sample = dense_sample  # using dense sample as I3D
+        self.twice_sample = twice_sample  # twice sample for more validation
         if self.dense_sample:
             print('=> Using dense sample for the dataset...')
+        if self.twice_sample:
+            print('=> Using twice sample for the dataset...')
 
         if self.modality == 'RGBDiff':
             self.new_length += 1  # Diff needs one more image to calculate diff
@@ -147,6 +150,13 @@ class TSNDataSet(data.Dataset):
             for start_idx in start_list.tolist():
                 offsets += [(idx * t_stride + start_idx) % record.num_frames for idx in range(self.num_segments)]
             return np.array(offsets) + 1
+        elif self.twice_sample:
+            tick = (record.num_frames - self.new_length + 1) / float(self.num_segments)
+
+            offsets = np.array([int(tick / 2.0 + tick * x) for x in range(self.num_segments)] +
+                               [int(tick * x) for x in range(self.num_segments)])
+
+            return offsets + 1
         else:
             tick = (record.num_frames - self.new_length + 1) / float(self.num_segments)
             offsets = np.array([int(tick / 2.0 + tick * x) for x in range(self.num_segments)])

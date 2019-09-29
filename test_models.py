@@ -25,6 +25,7 @@ parser.add_argument('dataset', type=str)
 parser.add_argument('--weights', type=str, default=None)
 parser.add_argument('--test_segments', type=str, default=25)
 parser.add_argument('--dense_sample', default=False, action="store_true", help='use dense sample as I3D')
+parser.add_argument('--twice_sample', default=False, action="store_true", help='use twice sample for ensemble')
 parser.add_argument('--full_res', default=False, action="store_true",
                     help='use full resolution 256x256 for test as in Non-local I3D')
 
@@ -184,7 +185,7 @@ for this_weights, this_test_segments, test_file in zip(weights_list, test_segmen
                            Stack(roll=(this_arch in ['BNInception', 'InceptionV3'])),
                            ToTorchFormatTensor(div=(this_arch not in ['BNInception', 'InceptionV3'])),
                            GroupNormalize(net.input_mean, net.input_std),
-                       ]), dense_sample=args.dense_sample, ),
+                       ]), dense_sample=args.dense_sample, twice_sample=args.twice_sample),
             batch_size=args.batch_size, shuffle=False,
             num_workers=args.workers, pin_memory=True,
     )
@@ -219,6 +220,9 @@ def eval_video(video_data, net, this_test_segments, modality):
         num_crop = args.test_crops
         if args.dense_sample:
             num_crop *= 10  # 10 clips for testing when using dense sample
+
+        if args.twice_sample:
+            num_crop *= 2
 
         if modality == 'RGB':
             length = 3

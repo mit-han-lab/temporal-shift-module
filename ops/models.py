@@ -101,7 +101,7 @@ class TSN(nn.Module):
         print('=> base model: {}'.format(base_model))
 
         if 'resnet' in base_model:
-            self.base_model = getattr(torchvision.models, base_model)(True)
+            self.base_model = getattr(torchvision.models, base_model)(True if self.pretrain == 'imagenet' else False)
             if self.is_shift:
                 print('Adding temporal shift...')
                 from ops.temporal_shift import make_temporal_shift
@@ -120,6 +120,30 @@ class TSN(nn.Module):
 
             self.base_model.avgpool = nn.AdaptiveAvgPool2d(1)
 
+            if self.modality == 'Flow':
+                self.input_mean = [0.5]
+                self.input_std = [np.mean(self.input_std)]
+            elif self.modality == 'RGBDiff':
+                self.input_mean = [0.485, 0.456, 0.406] + [0] * 3 * self.new_length
+                self.input_std = self.input_std + [np.mean(self.input_std) * 2] * 3 * self.new_length
+
+        elif base_model == 'mobilenetv2':
+            from archs.mobilenet_v2 import mobilenet_v2, InvertedResidual
+            self.base_model = mobilenet_v2(True if self.pretrain == 'imagenet' else False)
+
+            self.base_model.last_layer_name = 'classifier'
+            self.input_size = 224
+            self.input_mean = [0.485, 0.456, 0.406]
+            self.input_std = [0.229, 0.224, 0.225]
+
+            self.base_model.avgpool = nn.AdaptiveAvgPool2d(1)
+            if self.is_shift:
+                from ops.temporal_shift import TemporalShift
+                for m in self.base_model.modules():
+                    if isinstance(m, InvertedResidual) and len(m.conv) == 8 and m.use_res_connect:
+                        if self.print_spec:
+                            print('Adding temporal shift... {}'.format(m.use_res_connect))
+                        m.conv[0] = TemporalShift(m.conv[0], n_segment=self.num_segments, n_div=self.shift_div)
             if self.modality == 'Flow':
                 self.input_mean = [0.5]
                 self.input_std = [np.mean(self.input_std)]

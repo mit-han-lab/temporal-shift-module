@@ -17,11 +17,25 @@ If you find our paper and repo useful, please cite our paper. Thanks!
 }  
 ```
 
+### Content
+- [Prerequisites](#prerequisites)
+- [Data Preparation](#data-preparation)
+- [Code](#code)
+- [Pretrained Models](#pretrained-models)
+  * [Kinetics-400 (Dense Sampling)](#kinetics-400--dense-sampling-)
+  * [Kinetics-400 (Unifrom Sampling)](#kinetics-400--unifrom-sampling-)
+  * [Something-Something](#something-something)
+    + [Something-Something-V1](#something-something-v1)
+    + [Something-Something-V2](#something-something-v2)
+- [Testing](#testing)
+- [Training](#training)
+- [Live Demo on NVIDIA Jetson Nano](#live-demo-on-nvidia-jetson-nano)
+
 ### Prerequisites
 
 The code is built with following libraries:
 
-- [PyTorch](https://pytorch.org/) 1.0
+- [PyTorch](https://pytorch.org/) 1.0 or higher
 - [TensorboardX](https://github.com/lanpa/tensorboardX)
 - [tqdm](https://github.com/tqdm/tqdm.git)
 
@@ -55,19 +69,13 @@ return out
 
 Note that the naive implementation involves large data copying and increases memory consumption during training. It is suggested to use the **in-place** version of TSM to improve speed (see [ops/temporal_shift.py](ops/temporal_shift.py) Line 12 for the details.)
 
-### Kinetics Pretrained Models
+### Pretrained Models
 
-Training on Kinetics is computationally expensive. Here we provide the pretrained models on Kinetics for fine-tuning. To get the pretrained model, run from the root folder:
+Training video models is computationally expensive. Here we provide some of the pretrained models.
 
-```
-bash pretrained/download.sh
-```
+#### Kinetics-400 (Dense Sampling)
 
-It will download the models into `pretrained` folder.
-
-#### Dense Sampling Models
-
-In the current version of our paper, we reported the results of TSM trained and tested with **I3D dense sampling** (Table 1&4, 8-frame and 16-frame), using the same training and testing hyper-parameters as in [Non-local Neural Networks](https://arxiv.org/abs/1711.07971) paper to directly compare with I3D. Here we provide the 8-frame version checkpoint `TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth` that achieves 74.1% Kinetics accuracy. We also provide a model trained with **Non-local module** `TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth` to form NL TSM.
+In the latest version of our paper, we reported the results of TSM trained and tested with **I3D dense sampling** (Table 1&4, 8-frame and 16-frame), using the same training and testing hyper-parameters as in [Non-local Neural Networks](https://arxiv.org/abs/1711.07971) paper to directly compare with I3D. 
 
 We compare the I3D performance reported in Non-local paper:
 
@@ -75,25 +83,52 @@ We compare the I3D performance reported in Non-local paper:
 | --------------- | ------------ | ------------- |
 | I3D-ResNet50    | 32 * 10clips | 73.3%         |
 | TSM-ResNet50    | 8 * 10clips  | **74.1%**     |
-| NL I3D-ResNet50 | 32 * 10clips | 74.9%         |
-| NL TSM-ResNet50 | 8 * 10clips  | **75.6%**     |
+| I3D-ResNet50 NL | 32 * 10clips | 74.9%         |
+| TSM-ResNet50 NL | 8 * 10clips  | **75.6%**     |
 
 TSM outperforms I3D under the same dense sampling protocol. NL TSM model also achieves better performance than NL I3D model. Non-local module itself improves the accuracy by 1.5%.
 
-#### Unifrom Sampling Models
+Here is a list of pre-trained models that we provide (see Table 3 of the paper). The accuracy is tested using full resolution setting following [here](https://github.com/facebookresearch/video-nonlocal-net). The list is keeping updating.
 
-We also provide the checkpoints of TSN and TSM models using **uniform sampled frames** as in [Temporal Segment Networks](<https://arxiv.org/abs/1608.00859>) paper, which is very useful for fine-tuning on other datasets. We provide the pretrained ResNet-50 for TSN and our TSM (8 and 16 frames), including `TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth, TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth, TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth`.
+| model             | n-frame     | Kinetics Acc. | checkpoint                                                   | test log                                                     |
+| ----------------- | ----------- | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSN ResNet50 (2D) | 8 * 10clips | 70.6%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
+| TSM ResNet50      | 8 * 10clips | 74.1%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.log) |
+| TSM ResNet50 NL   | 8 * 10clips | 75.6%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.log) |
+| TSM ResNext101    | 8 * 10clips | 76.3%         | TODO                                                         | TODO                                                         |
+| TSM MoileNetV2    | 8 * 10clips | 69.5%         | TODO                                                         | TODO                                                         |
 
-The performance on Kinetics is measured as (using only 1 clip):
+#### Kinetics-400 (Unifrom Sampling)
 
-| method     | n-frame | acc (1-crop) | acc (10-crop) |
-| ---------- | ------- | ------------ | ------------- |
-| TSN        | 8       | 68.8%        | 69.9%         |
-| TSM (ours) | 8       | 71.2%        | 72.8%         |
-| TSN        | 16      | 69.4%        | 70.2%         |
-| TSM (ours) | 16      | **72.6%**    | **73.7%**     |
+We also provide the checkpoints of TSN and TSM models using **uniform sampled frames** as in [Temporal Segment Networks](<https://arxiv.org/abs/1608.00859>) paper, which is more sample efficient and very useful for fine-tuning on other datasets. Our TSM module improves consistently over the TSN baseline.
 
-Our TSM module improves consistently over the TSN baseline.
+| model             | n-frame    | acc (1-crop) | acc (10-crop) | checkpoint                                                   | test log                                                     |
+| ----------------- | ---------- | ------------ | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TSN ResNet50 (2D) | 8 * 1clip  | 68.8%        | 69.9%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_uniform_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
+| TSM ResNet50      | 8 * 1clip  | 71.2%        | 72.8%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.log) |
+| TSM ResNet50      | 16 * 1clip | 72.6%        | 73.7%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth) | -                                                            |
+
+#### Something-Something
+
+Something-Something [V1](https://20bn.com/datasets/something-something/v1)&[V2](https://20bn.com/datasets/something-something) datasets are highly temporal-related. TSM achieves state-of-the-art performnace on the datasets: TSM achieves the first place on V1 (50.72% test acc.) and second place on V2 (66.55% test acc.) using ResNet-50 backbone (as of 09/28/2019).
+
+Here we provide some of the models on the dataset. The accuracy is tested using both efficient setting (center crop * 1clip) and accuate setting ([full resolution](https://github.com/facebookresearch/video-nonlocal-net) * 2clip)
+
+##### Something-Something-V1
+
+| model        | n-frame    | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint | test log |
+| ------------ | ---------- | ------------------------- | ---------------------- | ---------- | -------- |
+| TSM ResNet50 | 8 * 1clip  | 45.6                      | 47.3                   | TODO       | TODO     |
+| TSM ResNet50 | 16 * 1clip | 47.2                      | 48.4                   | TODO       | TODO     |
+
+##### Something-Something-V2
+
+On V2 dataset, the accuracy is reported under the accurate setting (full resolution * 2clip).
+
+| model        | n-frame    | accuracy | checkpoint | test log |
+| ------------ | ---------- | -------- | ---------- | -------- |
+| TSM ResNet50 | 8 * 1clip  | 59.1     | TODO       | TODO     |
+| TSM ResNet50 | 16 * 1clip | 63.4     | TODO       | TODO     |
 
 ### Testing 
 
@@ -180,7 +215,7 @@ We provided several examples to train TSM with this repo:
        --tune_from=pretrained/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth
   ```
 
-### Live Demo on NVIDIA Jetson TX2
+### Live Demo on NVIDIA Jetson Nano
 
 We have build an online hand gesture recognition demo using our TSM. The model is built with MobileNetV2 backbone and trained on Jester dataset. 
 
