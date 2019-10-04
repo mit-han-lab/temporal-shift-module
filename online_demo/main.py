@@ -324,7 +324,7 @@ def main():
 
             if HISTORY_LOGIT:
                 history_logit.append(feat.asnumpy())
-                history_logit = history_logit[-8:]
+                history_logit = history_logit[-12:]
                 avg_logit = sum(history_logit)
                 idx_ = np.argmax(avg_logit, axis=1)[0]
 
@@ -336,7 +336,7 @@ def main():
 
             current_time = t2 - t1
 
-        img = cv2.resize(img, None, fx=2, fy=2)
+        img = cv2.resize(img, (640, 480))
         img = img[:, ::-1]
         height, width, _ = img.shape
         label = np.zeros([height // 10, width, 3]).astype('uint8') + 255
