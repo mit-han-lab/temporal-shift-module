@@ -1,12 +1,12 @@
-# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://hanlab.mit.edu/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)
+# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://hanlab.mit.edu/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)[[Demo]](https://www.youtube.com/watch?v=0T6u7S_gq-4)
 
 ```
-@article{lin2018temporal,
-    title={Temporal Shift Module for Efficient Video Understanding},
-    author={Lin, Ji and Gan, Chuang and Han, Song},
-    journal={arXiv preprint arXiv:1811.08383},
-    year={2018}
-}  
+@inproceedings{lin2019tsm,
+  title={TSM: Temporal Shift Module for Efficient Video Understanding},
+  author={Lin, Ji and Gan, Chuang and Han, Song},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  year={2019}
+} 
 ```
 
 **[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://hanlab.mit.edu/projects/tsm/#live_demo)
