@@ -117,6 +117,7 @@ def make_temporal_shift(net, n_segment, n_div=8, place='blockres', temporal_pool
         elif 'blockres' in place:
             n_round = 1
             if len(list(net.layer3.children())) >= 23:
+                n_round = 2
                 print('=> Using n_round {} to insert temporal shift'.format(n_round))
 
             def make_block_temporal(stage, this_segment):
