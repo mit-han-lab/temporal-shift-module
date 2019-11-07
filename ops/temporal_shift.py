@@ -31,7 +31,10 @@ class TemporalShift(nn.Module):
 
         fold = c // fold_div
         if inplace:
-            out = InplaceShift.apply(x, fold)
+            # Due to some out of order error when performing parallel computing. 
+            # May need to write a CUDA kernel.
+            raise NotImplementedError  
+            # out = InplaceShift.apply(x, fold)
         else:
             out = torch.zeros_like(x)
             out[:, :-1, :fold] = x[:, 1:, :fold]  # shift left
