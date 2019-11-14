@@ -102,7 +102,7 @@ Here is a list of pre-trained models that we provide (see Table 3 of the paper).
 | TSM ResNet50      | 8 * 10clips | 74.1%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.log) |
 | TSM ResNet50 NL   | 8 * 10clips | 75.6%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.log) |
 | TSM ResNext101    | 8 * 10clips | 76.3%         | TODO                                                         | TODO                                                         |
-| TSM MoileNetV2    | 8 * 10clips | 69.5%         | TODO                                                         | TODO                                                         |
+| TSM MoileNetV2    | 8 * 10clips | 69.5%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.log) |
 
 #### Unifrom Sampling
 
