@@ -57,11 +57,8 @@ git submodule update --init
 mkdir build
 cp cmake/config.cmake build/
 cd build
-#[
-#edit config.cmake to change
-# 32 line: USE_CUDA OFF -> USE_CUDA ON
-#104 line: USE_LLVM OFF -> USE_LLVM ON
-#]
+sed -i "s/USE_CUDA OFF/USE_CUDA ON/g" ./config.cmake
+sed -i "s/USE_LLVM OFF/USE_LLVM ON/g" ./config.cmake
 cmake ..
 make -j4
 cd ..
