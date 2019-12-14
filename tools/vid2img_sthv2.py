@@ -12,9 +12,9 @@ FRAME_ROOT = '/ssd/video/something/v2/20bn-something-something-v2-frames'  # Dir
 
 
 def split(l, n):
-    """Yield successive n-sized chunks from l."""
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
+    """Yield successive almost equal sized n chunks from l."""
+    for i in range(n):
+        yield l[i::n]
 
 
 def extract(video, tmpl='%06d.jpg'):
