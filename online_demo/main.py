@@ -70,7 +70,7 @@ def torch2executor(torch_module: torch.nn.Module, torch_inputs: Tuple[torch.Tens
     return executor, ctx
 
 
-def get_executor():
+def get_executor(use_gpu=True):
     torch_module = MobileNetV2(n_class=27)
     if not os.path.exists("mobilenetv2_jester_online.pth.tar"):  # checkpoint not downloaded
         print('Downloading PyTorch checkpoint...')
@@ -89,7 +89,11 @@ def get_executor():
                     torch.zeros([1, 12, 14, 14]),
                     torch.zeros([1, 20, 7, 7]),
                     torch.zeros([1, 20, 7, 7]))
-    return torch2executor(torch_module, torch_inputs, target='cuda')
+    if use_gpu:
+        target = 'cuda'
+    else:
+        target = 'llvm -mcpu=cortex-a72 -target=armv7l-linux-gnueabihf'
+    return torch2executor(torch_module, torch_inputs, target)
 
 
 def transform(frame: np.ndarray):
