@@ -132,7 +132,7 @@ class NL3DWrapper(nn.Module):
 def make_non_local(net, n_segment):
     import torchvision
     import archs
-    if isinstance(net, torchvision.models.ResNet) or isinstance(net, archs.small_resnet.ResNet):
+    if isinstance(net, torchvision.models.ResNet):
         net.layer2 = nn.Sequential(
             NL3DWrapper(net.layer2[0], n_segment),
             net.layer2[1],
