@@ -51,8 +51,8 @@ export PYTHONPATH=/usr/local/python
 
 ```
 sudo apt install llvm # install llvm which is required by tvm
-git clone https://github.com/dmlc/tvm.git
-cd tvm
+git clone https://github.com/apache/incubator-tvm.git
+cd incubator-tvm
 git submodule update --init
 mkdir build
 cp cmake/config.cmake build/
@@ -66,7 +66,6 @@ cmake ..
 make -j4
 cd ..
 cd python; sudo python3 setup.py install; cd ..
-cd nnvm/python; sudo python3 setup.py install; cd ../..
 cd topi/python; sudo python3 setup.py install; cd ../..
 ```
 
