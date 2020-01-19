@@ -9,6 +9,8 @@
 } 
 ```
 
+**[NEW!]** We have released the pre-trained **optical flow** model on Kinetics. We believe the pre-trained weight will help the training of two-stream models on other datasets.
+
 **[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://hanlab.mit.edu/projects/tsm/#live_demo)
 
 ![tsm-demo](https://hanlab.mit.edu/projects/tsm/external/tsm-demo2.gif)
@@ -105,7 +107,7 @@ Here is a list of pre-trained models that we provide (see Table 3 of the paper).
 | TSM ResNext101    | 8 * 10clips | 76.3%         | TODO                                                         | TODO                                                         |
 | TSM MoileNetV2    | 8 * 10clips | 69.5%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.log) |
 
-#### Unifrom Sampling
+#### Uniform Sampling
 
 We also provide the checkpoints of TSN and TSM models using **uniform sampled frames** as in [Temporal Segment Networks](<https://arxiv.org/abs/1608.00859>) paper, which is more sample efficient and very useful for fine-tuning on other datasets. Our TSM module improves consistently over the TSN baseline.
 
@@ -114,6 +116,14 @@ We also provide the checkpoints of TSN and TSM models using **uniform sampled fr
 | TSN ResNet50 (2D) | 8 * 1clip  | 68.8%        | 69.9%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_uniform_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
 | TSM ResNet50      | 8 * 1clip  | 71.2%        | 72.8%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.log) |
 | TSM ResNet50      | 16 * 1clip | 72.6%        | 73.7%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth) | -                                                            |
+
+#### Optical Flow
+
+We provide the optical flow model pre-trained on Kinetics. The model is trained using uniform sampling. We did not carefully tune the training hyper-parameters. Therefore, the model is intended for transfer learning on other datasets but not for performance evaluation.
+
+| model        | n-frame   | top-1 acc | top-5 acc | checkpoint                                                   | test log |
+| ------------ | --------- | --------- | --------- | ------------------------------------------------------------ | -------- |
+| TSM ResNet50 | 8 * 1clip | 55.7%     | 79.5%     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_Flow_resnet50_shift8_blockres_avg_segment8_e50.pth) | -        |
 
 ### Something-Something
 

@@ -6,9 +6,10 @@ class Identity(torch.nn.Module):
         return input
 
 
-class SegmentConsensus(torch.autograd.Function):
+class SegmentConsensus(torch.nn.Module):
 
     def __init__(self, consensus_type, dim=1):
+        super(SegmentConsensus, self).__init__()
         self.consensus_type = consensus_type
         self.dim = dim
         self.shape = None
@@ -23,16 +24,6 @@ class SegmentConsensus(torch.autograd.Function):
             output = None
 
         return output
-
-    def backward(self, grad_output):
-        if self.consensus_type == 'avg':
-            grad_in = grad_output.expand(self.shape) / float(self.shape[self.dim])
-        elif self.consensus_type == 'identity':
-            grad_in = grad_output
-        else:
-            grad_in = None
-
-        return grad_in
 
 
 class ConsensusModule(torch.nn.Module):
