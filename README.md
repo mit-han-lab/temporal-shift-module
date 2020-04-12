@@ -235,15 +235,14 @@ We provided several examples to train TSM with this repo:
        --tune_from=pretrained/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth
   ```
 
-- Similarly, you can fine-tune the 16-frame model on Something-Something-V1 dataset using **uniform sampling** by running:
+- To train on Something-Something dataset (V1&V2), using ImageNet pre-training is usually better:
 
   ```bash
   python main.py something RGB \
-       --arch resnet50 --num_segments 16 \
-       --gd 20 --lr 0.001 --lr_steps 10 20 --epochs 25 \
+       --arch resnet50 --num_segments 8 \
+       --gd 20 --lr 0.01 --lr_steps 20 40 --epochs 50 \
        --batch-size 64 -j 16 --dropout 0.5 --consensus_type=avg --eval-freq=1 \
-       --shift --shift_div=8 --shift_place=blockres \
-       --tune_from=pretrained/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth
+       --shift --shift_div=8 --shift_place=blockres --npb
   ```
 
 ## Live Demo on NVIDIA Jetson Nano
