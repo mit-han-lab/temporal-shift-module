@@ -1,4 +1,4 @@
-# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://hanlab.mit.edu/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)[[Demo]](https://www.youtube.com/watch?v=0T6u7S_gq-4)
+# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://file.lzhu.me/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)[[Demo]](https://www.youtube.com/watch?v=0T6u7S_gq-4)
 
 ```
 @inproceedings{lin2019tsm,
@@ -11,15 +11,15 @@
 
 **[NEW!]** We have released the pre-trained **optical flow** model on Kinetics. We believe the pre-trained weight will help the training of two-stream models on other datasets.
 
-**[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://hanlab.mit.edu/projects/tsm/#live_demo)
+**[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://file.lzhu.me/projects/tsm/#live_demo)
 
-![tsm-demo](https://hanlab.mit.edu/projects/tsm/external/tsm-demo2.gif)
+![tsm-demo](https://file.lzhu.me/projects/tsm/external/tsm-demo2.gif)
 
 ## Overview
 
 We release the PyTorch code of the [Temporal Shift Module](https://arxiv.org/abs/1811.08383).
 
-![framework](https://hanlab.mit.edu/projects/tsm/external/TSM-module.png)
+![framework](https://file.lzhu.me/projects/tsm/external/TSM-module.png)
 
 ## Content
 
@@ -101,11 +101,11 @@ Here is a list of pre-trained models that we provide (see Table 3 of the paper).
 
 | model             | n-frame     | Kinetics Acc. | checkpoint                                                   | test log                                                     |
 | ----------------- | ----------- | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSN ResNet50 (2D) | 8 * 10clips | 70.6%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
-| TSM ResNet50      | 8 * 10clips | 74.1%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.log) |
-| TSM ResNet50 NL   | 8 * 10clips | 75.6%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.log) |
+| TSN ResNet50 (2D) | 8 * 10clips | 70.6%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
+| TSM ResNet50      | 8 * 10clips | 74.1%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense.log) |
+| TSM ResNet50 NL   | 8 * 10clips | 75.6%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e100_dense_nl.log) |
 | TSM ResNext101    | 8 * 10clips | 76.3%         | TODO                                                         | TODO                                                         |
-| TSM MoileNetV2    | 8 * 10clips | 69.5%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.log) |
+| TSM MoileNetV2    | 8 * 10clips | 69.5%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_TSM_kinetics_RGB_mobilenetv2_shift8_blockres_avg_segment8_e100_dense.log) |
 
 #### Uniform Sampling
 
@@ -113,9 +113,9 @@ We also provide the checkpoints of TSN and TSM models using **uniform sampled fr
 
 | model             | n-frame    | acc (1-crop) | acc (10-crop) | checkpoint                                                   | test log                                                     |
 | ----------------- | ---------- | ------------ | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSN ResNet50 (2D) | 8 * 1clip  | 68.8%        | 69.9%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_uniform_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
-| TSM ResNet50      | 8 * 1clip  | 71.2%        | 72.8%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.log) |
-| TSM ResNet50      | 16 * 1clip | 72.6%        | 73.7%         | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth) | -                                                            |
+| TSN ResNet50 (2D) | 8 * 1clip  | 68.8%        | 69.9%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_avg_segment5_e50.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_uniform_TSM_kinetics_RGB_resnet50_avg_segment5_e50.log) |
+| TSM ResNet50      | 8 * 1clip  | 71.2%        | 72.8%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment8_e50.log) |
+| TSM ResNet50      | 16 * 1clip | 72.6%        | 73.7%         | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50.pth) | -                                                            |
 
 #### Optical Flow
 
@@ -123,7 +123,7 @@ We provide the optical flow model pre-trained on Kinetics. The model is trained 
 
 | model        | n-frame   | top-1 acc | top-5 acc | checkpoint                                                   | test log |
 | ------------ | --------- | --------- | --------- | ------------------------------------------------------------ | -------- |
-| TSM ResNet50 | 8 * 1clip | 55.7%     | 79.5%     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_kinetics_Flow_resnet50_shift8_blockres_avg_segment8_e50.pth) | -        |
+| TSM ResNet50 | 8 * 1clip | 55.7%     | 79.5%     | [link](https://file.lzhu.me/projects/tsm/models/TSM_kinetics_Flow_resnet50_shift8_blockres_avg_segment8_e50.pth) | -        |
 
 ### Something-Something
 
@@ -135,9 +135,9 @@ Here we provide some of the models on the dataset. The accuracy is tested using 
 
 | model         | n-frame | acc (center crop * 1clip) | acc (full res * 2clip) | checkpoint                                                   | test log                                                     |
 | ------------- | ------- | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSM ResNet50  | 8       | 45.6                      | 47.2                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
-| TSM ResNet50  | 16      | 47.2                      | 48.4                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
-| TSM ResNet101 | 8       | 46.9                      | 48.7                   | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.pth) | [link1](https://hanlab.mit.edu/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) [link2](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50  | 8       | 45.6                      | 47.2                   | [link](https://file.lzhu.me/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link1](https://file.lzhu.me/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) [link2](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50  | 16      | 47.2                      | 48.4                   | [link](https://file.lzhu.me/projects/tsm/models/TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link1](https://file.lzhu.me/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) [link2](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
+| TSM ResNet101 | 8       | 46.9                      | 48.7                   | [link](https://file.lzhu.me/projects/tsm/models/TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.pth) | [link1](https://file.lzhu.me/projects/tsm/models/log/testlog_1clip_TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) [link2](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_something_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) |
 
 #### Something-Something-V2
 
@@ -145,9 +145,9 @@ On V2 dataset, the accuracy is reported under the accurate setting (full resolut
 
 | model         | n-frame   | accuracy | checkpoint                                                   | test log                                                     |
 | ------------- | --------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TSM ResNet50  | 8 * 2clip | 61.2     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
-| TSM ResNet50  | 16 * 2lip | 63.1     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
-| TSM ResNet101 | 8 * 2clip | 63.3     | [link](https://hanlab.mit.edu/projects/tsm/models/TSM_somethingv2_RGB_resnet101_shift8_blockres_avg_segment8_e45.pth) | [link](https://hanlab.mit.edu/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50  | 8 * 2clip | 61.2     | [link](https://file.lzhu.me/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment8_e45.log) |
+| TSM ResNet50  | 16 * 2lip | 63.1     | [link](https://file.lzhu.me/projects/tsm/models/TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet50_shift8_blockres_avg_segment16_e45.log) |
+| TSM ResNet101 | 8 * 2clip | 63.3     | [link](https://file.lzhu.me/projects/tsm/models/TSM_somethingv2_RGB_resnet101_shift8_blockres_avg_segment8_e45.pth) | [link](https://file.lzhu.me/projects/tsm/models/log/testlog_2clip_TSM_somethingv2_RGB_resnet101_shift8_blockres_avg_segment8_e45.log) |
 
 ## Testing 
 
@@ -249,6 +249,6 @@ We provided several examples to train TSM with this repo:
 
 We have build an online hand gesture recognition demo using our TSM. The model is built with MobileNetV2 backbone and trained on Jester dataset. 
 
-- Recorded video of the live demo [[link]](https://hanlab.mit.edu/projects/tsm/#live_demo)
+- Recorded video of the live demo [[link]](https://file.lzhu.me/projects/tsm/#live_demo)
 - Code of the live demo and set up tutorial:  [`online_demo`](online_demo) 
 
