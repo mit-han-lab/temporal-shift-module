@@ -9,7 +9,7 @@
 }
 ```
 
-![tsm-demo](https://hanlab.mit.edu/projects/tsm/external/tsm-demo2.gif)
+![tsm-demo](https://file.lzhu.me/projects/tsm/external/tsm-demo2.gif)
 
 See the [[full video]](https://hanlab.mit.edu/projects/tsm/#live_demo) of our demo on NVIDIA Jetson Nano.
 

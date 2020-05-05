@@ -75,7 +75,7 @@ def get_executor(use_gpu=True):
     if not os.path.exists("mobilenetv2_jester_online.pth.tar"):  # checkpoint not downloaded
         print('Downloading PyTorch checkpoint...')
         import urllib.request
-        url = 'https://hanlab.mit.edu/projects/tsm/models/mobilenetv2_jester_online.pth.tar'
+        url = 'https://file.lzhu.me/projects/tsm/models/mobilenetv2_jester_online.pth.tar'
         urllib.request.urlretrieve(url, './mobilenetv2_jester_online.pth.tar')
     torch_module.load_state_dict(torch.load("mobilenetv2_jester_online.pth.tar"))
     torch_inputs = (torch.rand(1, 3, 224, 224),
