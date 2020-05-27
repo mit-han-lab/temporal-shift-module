@@ -40,7 +40,14 @@ We show how to set up the environment on Jetson Nano, compile the PyTorch model 
 
 1. Get an [NVIDIA Jeston Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) board (it is only $99!).
 2. Get a micro SD card and burn the **Nano system image** into it following [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit). Insert the card and boot the Nano. **Note**: you may want to get a power adaptor for a stable power supply.
-3. Build **OpenCV** 4.0.0 using [this script](https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.0.0_Nano.sh), so that we can enable camera access (It may take a while due to the weak CPU). You also need add cv2 package to path import search path.
+3. Check if OpenCv 4.X is installed (it is now included in SD card image from r32.3.1)
+```
+ $ Python3
+ >> Import cv2
+ >> cv2.__version__
+ ```
+ It should show 4.X.
+ If not, build **OpenCV** 4.0.0 using [this script](https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.0.0_Nano.sh), so that we can enable camera access (It may take a while due to the weak CPU). You also need add cv2 package to path import search path.
 
 ```
 export PYTHONPATH=/usr/local/python
@@ -51,7 +58,7 @@ export PYTHONPATH=/usr/local/python
 
 ```
 sudo apt install llvm # install llvm which is required by tvm
-git clone https://github.com/apache/incubator-tvm.git
+git clone -b v0.6 https://github.com/apache/incubator-tvm.git
 cd incubator-tvm
 git submodule update --init
 mkdir build
