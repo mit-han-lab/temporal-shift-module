@@ -1,4 +1,4 @@
-# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://file.lzhu.me/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)[[Demo]](https://www.youtube.com/watch?v=0T6u7S_gq-4)
+# TSM: Temporal Shift Module for Efficient Video Understanding [[Website]](https://hanlab.mit.edu/projects/tsm/) [[arXiv]](https://arxiv.org/abs/1811.08383)[[Demo]](https://www.youtube.com/watch?v=0T6u7S_gq-4)
 
 ```
 @inproceedings{lin2019tsm,
