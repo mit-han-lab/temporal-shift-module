@@ -13,6 +13,8 @@
 
 See the [[full video]](https://hanlab.mit.edu/projects/tsm/#live_demo) of our demo on NVIDIA Jetson Nano.
 
+**[NEW!]** We have updated the environment set up by using `onnx-simplifier`, which makes the deployment easy. Thanks for the advice from @poincarelee!
+
 ## Overview
 
 We show how to deploy an online hand gesture recognition system on **NVIDIA Jetson Nano**. The model is based on MobileNetV2 backbone with **Temporal Shift Module (TSM)** to model the temporal relationship. It is compiled with **TVM** [1] for acceleration. 
@@ -45,7 +47,7 @@ We show how to set up the environment on Jetson Nano, compile the PyTorch model 
  $ Python3
  >> Import cv2
  >> cv2.__version__
- ```
+```
  It should show 4.X.
  If not, build **OpenCV** 4.0.0 using [this script](https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.0.0_Nano.sh), so that we can enable camera access (It may take a while due to the weak CPU). You also need add cv2 package to path import search path.
 
@@ -84,7 +86,16 @@ sudo apt-get install protobuf-compiler libprotoc-dev
 pip3 install onnx
 ```
 
-7. export cuda toolkit binary to path
+7. Install **onnx-simplifier**
+
+```
+git clone https://github.com/daquexian/onnx-simplifier
+cd onnx-simplifier
+# remove requirement 'onnxruntime >= 1.2.0' in setup.py, as it is not actually used
+pip install .
+```
+
+8. export cuda toolkit binary to path
 
 ```
 export PATH=$PATH:/usr/local/cuda/bin

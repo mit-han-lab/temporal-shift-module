@@ -9,6 +9,8 @@
 } 
 ```
 
+**[NEW!]** We update the environment setup for the `online_demo`, and should be much easier to set up. Check the folder for a try!
+
 **[NEW!]** We have released the pre-trained **optical flow** model on Kinetics. We believe the pre-trained weight will help the training of two-stream models on other datasets.
 
 **[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://file.lzhu.me/projects/tsm/#live_demo)

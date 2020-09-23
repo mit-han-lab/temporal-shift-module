@@ -1,16 +1,16 @@
 import numpy as np
+import cv2
 import os
 from typing import Tuple
 import io
 import tvm
 import tvm.relay
 import time
-import cv2
+import onnx
 import torch
 import torchvision
 import torch.onnx
 from PIL import Image, ImageOps
-import onnx
 import tvm.contrib.graph_runtime as graph_runtime
 from mobilenet_v2_tsm import MobileNetV2
 
@@ -28,10 +28,12 @@ def torch2tvm_module(torch_module: torch.nn.Module, torch_inputs: Tuple[torch.Te
             input_names.append(name)
             input_shapes[name] = torch_input.shape
         buffer = io.BytesIO()
-        torch.onnx.export(torch_module, torch_inputs, buffer, input_names=input_names, output_names=["o" + str(i) for i in range(len(torch_inputs))])
+        torch.onnx.export(torch_module, torch_inputs, buffer, input_names=input_names, output_names=["o" + str(i) for i in range(len(torch_inputs))], opset_version=10)
         outs = torch_module(*torch_inputs)
         buffer.seek(0, 0)
         onnx_model = onnx.load_model(buffer)
+        from onnxsim import simplify
+        onnx_model = simplify(onnx_model)  # this simplifier removes conversion bugs.
         relay_module, params = tvm.relay.frontend.from_onnx(onnx_model, shape=input_shapes)
     with tvm.relay.build_config(opt_level=3):
         graph, tvm_module, params = tvm.relay.build(relay_module, target, params=params)
