@@ -33,7 +33,8 @@ def torch2tvm_module(torch_module: torch.nn.Module, torch_inputs: Tuple[torch.Te
         buffer.seek(0, 0)
         onnx_model = onnx.load_model(buffer)
         from onnxsim import simplify
-        onnx_model = simplify(onnx_model)  # this simplifier removes conversion bugs.
+        onnx_model, success = simplify(onnx_model)  # this simplifier removes conversion bugs.
+        assert success
         relay_module, params = tvm.relay.frontend.from_onnx(onnx_model, shape=input_shapes)
     with tvm.relay.build_config(opt_level=3):
         graph, tvm_module, params = tvm.relay.build(relay_module, target, params=params)
