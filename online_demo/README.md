@@ -93,6 +93,7 @@ git clone https://github.com/daquexian/onnx-simplifier
 cd onnx-simplifier
 # remove requirement 'onnxruntime >= 1.2.0' in setup.py, as it is not actually used
 pip install .
+cd ..
 ```
 
 8. export cuda toolkit binary to path
