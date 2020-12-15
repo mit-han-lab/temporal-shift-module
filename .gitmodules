@@ -1,0 +1,3 @@
+[submodule "tsm_fpga/tf_models"]
+	path = tsm_fpga/tf_models
+	url = https://github.com/JoshNoel/tf_models
