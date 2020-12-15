@@ -1,0 +1,5 @@
+{
+    "target"   : "DPUCZDX8G",
+    "dcf"      : "ULTRA96V2.dcf",
+    "cpu_arch" : "arm64"
+}

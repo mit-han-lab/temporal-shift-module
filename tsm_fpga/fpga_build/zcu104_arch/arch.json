@@ -1,0 +1,5 @@
+{
+    "target"   : "DPUCZDX8G",
+    "dcf"      : "/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/python3.6/site-packages/vaic/arch/DPUCZDX8G/ZCU104/ZCU104.dcf",
+    "cpu_arch" : "arm64"
+}
