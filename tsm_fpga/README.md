@@ -1,4 +1,4 @@
-# TSM Deployed to FPGA
+# TSM Deployed to FPGA [[Demo]](https://www.youtube.com/watch?v=dy6-uPzg86c)
 
 We deploy TSM to FPGA using the Vitis-AI framework. To do so, we generate a tensorflow implementation of the TSM model, and pipeline the network such that all shift operations are isolated. This allows deployment of the Shift operation to CPU and the remaining operations to the Vitis-AI DPU IP.
 
@@ -31,4 +31,5 @@ Once model quantization is complete, in the `fpga_build/model_tf_split` director
 ## Ultra96V2 Online-TSM Jester Demo
 
 On Ultra96V2 we achieve an inference throughput of 37 FPS with a power consumpstion of 10.6W.
+A recording of this demo along with project description can be found at [[ultra96v2-demo]](https://www.youtube.com/watch?v=dy6-uPzg86c).
 
