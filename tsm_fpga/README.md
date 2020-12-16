@@ -6,7 +6,7 @@ We must take additional steps to deploy this pipelined model. First, isolating t
 
 To quantize the split model, we dump intermediate activations from the unsplit implementation at the locations of DPU kernel inputs. These inputs are then used as input to the Vitis-AI quantizer. Once quantized, the resulting splits of the model can be compiled into the final demo executable.
 
-![split-mbv2](https://github.com/mit-han-lab/temporal-shift-module/tree/master/tsm_fpga/images/split_mobilenetv2_bottleneck.png)
+![split-mbv2](https://github.com/mit-han-lab/temporal-shift-module/raw/master/tsm_fpga/images/split_mobilenetv2_bottleneck.png)
 
 ## FPGA Setup
 
