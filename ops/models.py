@@ -32,6 +32,7 @@ class TSN(nn.Module):
         self.is_shift = is_shift
         self.shift_div = shift_div
         self.shift_place = shift_place
+        self.print_spec = print_spec
         self.base_model_name = base_model
         self.fc_lr5 = fc_lr5
         self.temporal_pool = temporal_pool
