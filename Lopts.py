@@ -73,4 +73,4 @@ parser.add_argument('--shift_place', default='blockres', type=str, help='place f
 parser.add_argument('--temporal_pool', default=False, action="store_true", help='add temporal pooling')
 parser.add_argument('--non_local', default=False, action="store_true", help='add non local block')
 
-parser.add_argument('--dense_sample', default=False, action="store_true", help='use dense sample for video dataset')
+parser.add_argument('--dense_sample', default=False, action="store_true", help='use dense sample for video datasety')
