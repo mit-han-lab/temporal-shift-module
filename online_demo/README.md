@@ -88,10 +88,12 @@ pip3 install onnx
 
 7. Install **onnx-simplifier**
 
+   Follow [here](https://elinux.org/Jetson_Zoo#ONNX_Runtime) to install **onnxruntime**.
+ 
 ```
 git clone https://github.com/daquexian/onnx-simplifier
 cd onnx-simplifier
-# remove requirement 'onnxruntime >= 1.2.0' in setup.py, as it is not actually used
+# remove requirement 'onnxruntime >= 1.2.0' in setup.py.
 pip install .
 cd ..
 ```
