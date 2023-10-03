@@ -9,9 +9,9 @@
 }
 ```
 
-![tsm-demo](https://hanlab.mit.edu/projects/tsm/external/tsm-demo2.gif)
+![tsm-demo](https://hanlab18.mit.edu/projects/tsm/external/tsm-demo2.gif)
 
-See the [[full video]](https://hanlab.mit.edu/projects/tsm/#live_demo) of our demo on NVIDIA Jetson Nano.
+See the [[full video]](https://hanlab18.mit.edu/projects/tsm/#live_demo) of our demo on NVIDIA Jetson Nano.
 
 **[NEW!]** We have updated the environment set up by using `onnx-simplifier`, which makes the deployment easy. Thanks for the advice from @poincarelee!
 
@@ -27,13 +27,13 @@ The model can achieve **real-time** recognition. Without considering the data IO
 
 We used an online version of Temporal Shift Module in this demo. The model design is shown below:
 <p align="center">
-	<img src="https://hanlab.mit.edu/projects/tsm/external/tsm-online-model.png" width="550">
+	<img src="https://hanlab18.mit.edu/projects/tsm/external/tsm-online-model.png" width="550">
 </p>
 
 After compiled with TVM, our model can efficient run on low-power devices.
 
 <p align="center">
-	<img src="https://hanlab.mit.edu/projects/tsm/external/tsm-low-power.png" width="550">
+	<img src="https://hanlab18.mit.edu/projects/tsm/external/tsm-low-power.png" width="550">
 </p>
 
 ## Step-by-step Tutorial
