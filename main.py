@@ -244,7 +244,8 @@ def train(train_loader, model, criterion, optimizer, epoch, log, tf_writer):
         output = model(input_var)
         loss = criterion(output, target_var)
 
-        # measure accuracy and record loss
+        # measure accuracy and record loss 
+        #if you have only 2 classes change the 5 to 2 the second argumnet is no of classes
         prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
         losses.update(loss.item(), input.size(0))
         top1.update(prec1.item(), input.size(0))
@@ -301,6 +302,7 @@ def validate(val_loader, model, criterion, epoch, log=None, tf_writer=None):
             loss = criterion(output, target)
 
             # measure accuracy and record loss
+            #if you have only 2 classes change the 5 to 2 the second argumnet is no of classes
             prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
 
             losses.update(loss.item(), input.size(0))
