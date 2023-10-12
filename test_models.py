@@ -191,11 +191,10 @@ for this_weights, this_test_segments, test_file in zip(weights_list, test_segmen
     )
 
     if args.gpus is not None:
-        devices = [args.gpus[i] for i in range(args.workers)]
+        devices = args.gpus
+        net = torch.nn.DataParallel(net.cuda(), devices)
     else:
-        devices = list(range(args.workers))
-
-    net = torch.nn.DataParallel(net.cuda())
+        net = torch.nn.DataParallel(net.cuda())
     net.eval()
 
     data_gen = enumerate(data_loader)
