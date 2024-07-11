@@ -9,11 +9,15 @@
 } 
 ```
 
-**[NEW!]** We update the environment setup for the `online_demo`, and should be much easier to set up. Check the folder for a try!
+## News
 
-**[NEW!]** We have released the pre-trained **optical flow** model on Kinetics. We believe the pre-trained weight will help the training of two-stream models on other datasets.
+- TSM is featured by [MIT News](http://news.mit.edu/2019/faster-video-recognition-smartphone-era-1011) / [MIT Technology Review](https://www.technologyreview.com/f/614551/ai-computer-vision-algorithms-on-your-phone-mit-ibm/) / [WIRED](https://www.wired.com/story/technique-easier-ai-understand-videos/) / [Engadget](https://www.engadget.com/2019/10/09/mit-ibm-machine-learning-faster-video-recognition/?guccounter=1&guce_referrer=aHR0cHM6Ly90LmNvL3hQSHBUMlJtdXc_YW1wPTE&guce_referrer_sig=AQAAAMPjElPjCfQqcJfbfckoSUJnh3OuqTR0KC_Z6S8-3h4ruHQ2z2RA5uiy_RQPVGmDJ8JghLtfI4XH0gIQr9-UlAQuA_4MJwfEEY9GMq6Tl8YolX6AVBlObRlvSMQ2M35zqGnzhp7-Av5dyfUUBxJQhH7Zo8Y_p9uOkhgU_FKl9oYB)/[NVIDIA News](https://news.developer.nvidia.com/new-mit-video-recognition-model-dramatically-improves-latency-on-edge-devices/?ncid=em-news-24390&mkt_tok=eyJpIjoiWm1JeU9UVTBNVGRpT1RVeCIsInQiOiJCVXIyUkhsdUFtcFBNY1NoTElpUytUOHJnMjdFN2pUTGY4UWpHMEZGQXNSRHRJUmxJMXpFa0FyOGF5Zk1US0NLMWZ1SU90anRiN3lCU0xGOWNNajdTazB4ajFVK2g4RnBxYXpiVFZLSWFKRzFkSURZZ0pGUVdodUYwek1vT2NSWiJ9#cid=dlz_em-news_en-us) 
+- **(09/2020)** We update the environment setup for the `online_demo`, and should be much easier to set up. Check the folder for a try!
 
-**[NEW!]** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://hanlab18.mit.edu/projects/tsm/#live_demo)
+- **(01/2020)** We have released the pre-trained **optical flow** model on Kinetics. We believe the pre-trained weight will help the training of two-stream models on other datasets.
+- **(10/2019)** We scale up the training of the TSM model to 1,536 GPUs, finishing Kinetics pre-training in 15 minutes. See tech report [here](https://arxiv.org/abs/1910.00932).
+
+- **(09/2019)** We have released the code of online hand gesture recognition on NVIDIA Jeston Nano. It can achieve real-time recognition at only 8 watts. See [`online_demo`](online_demo) folder for the details. [[Full Video]](https://hanlab18.mit.edu/projects/tsm/#live_demo)
 
 ![tsm-demo](https://hanlab18.mit.edu/projects/tsm/external/tsm-demo2.gif)
 
