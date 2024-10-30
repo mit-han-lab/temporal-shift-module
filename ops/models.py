@@ -28,7 +28,7 @@ class TSN(nn.Module):
         self.consensus_type = consensus_type
         self.img_feature_dim = img_feature_dim  # the dimension of the CNN feature to represent each frame
         self.pretrain = pretrain
-
+        self.print_spec=print_spec
         self.is_shift = is_shift
         self.shift_div = shift_div
         self.shift_place = shift_place
