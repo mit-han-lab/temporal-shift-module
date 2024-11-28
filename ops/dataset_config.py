@@ -90,7 +90,7 @@ def return_jester(modality):
 
 
 def return_kinetics(modality):
-    filename_categories = 400
+    filename_categories =  #path to 'kinetics_label_map.txt'
     if modality == 'RGB':
         root_data = ROOT_DATASET + 'kinetics/images'
         filename_imglist_train = 'kinetics/labels/train_videofolder.txt'
